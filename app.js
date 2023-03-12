@@ -12,13 +12,16 @@ app.use(cors());
 app.use(express.static("build"));
 app.use(express.json());
 console.log(__dirname);
-console.log(path.join(__dirname, "/models/model_jss/model.json"));
+console.log(path.join(__dirname, "/models/model_inception/model.json"));
 
 app.use(
   "/api/classify",
-  express.static(path.join(__dirname, "/models/model_jss/model.json"))
+  express.static(path.join(__dirname, "/models/model_inception/model.json"))
 );
 
-app.use("/api/", express.static(path.join(__dirname, "models/model_jss")));
+app.use(
+  "/api/",
+  express.static(path.join(__dirname, "models/model_inception"))
+);
 
 module.exports = app;
